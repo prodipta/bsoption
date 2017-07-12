@@ -1,0 +1,15 @@
+Package: bsoption
+Type: Package
+Title: Black-Scholes implementation for equity index options
+Version: 0.1.0
+Author: Prodipta Ghosh <prodiptag@gmail.com>
+Maintainer: Prodipta Ghosh <prodiptag@gmail.com>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: GPL-2
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 2.10)
+Imports:
+    xts, zoo, quantmod, TTR
+RoxygenNote: 5.0.1
