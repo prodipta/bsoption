@@ -62,7 +62,6 @@ calibrate.sabrvol <- function(options, valuedate, atmvol, precision){
                                            "delta"))$atmvol
  }
  f <- options$forward[1]; t <- options$t[1]; b <- 0
- print(atmvol)
  strikes <- options$strike; IV <- options$IV
  params <- c(-0.5,0.5)
  fit <- stats::optim(params,fn=squared_error, method = "SANN",
