@@ -23,9 +23,16 @@
 #'@export
 calibrate <- function(options, valuedate, model="quadratic",atmvol=0,
                       precision=2, type="delta"){
+  cols <- tolower(colnames(options))
   expected_cols <- c("forward","expiry","strike","price","type")
-  if(any(is.na(match(expected_cols,colnames(options)))))
+  idx <- unlist(apply(as.matrix(expected_cols),1,FUN = function(x){
+    if(length(grep(x,cols))>0)return(grep(x,cols))
+    return(0)
+  }))
+
+  if(any(idx==0))
     stop("Input option prices are not in correct format. See help.")
+  colnames(options)[idx] <- expected_cols
 
   if(NROW(unique(options$forward)) !=1 | NROW(unique(options$forward)) !=1)
     stop("Multiple expiries found. Calibrate one expiry series at a time.")

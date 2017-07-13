@@ -109,6 +109,7 @@ bsVolSolve <- function(forward, strike, time, price,
 bsPlainVanillaOption <- function(date, forward, strike, expiry, vol,
                                  type="call", discount=1, output='price', model='lognormal'){
   type <- tolower(type)
+  output <- tolower(output)
   if (model != 'lognormal')stop('not implemented yet')
 
   N <- max(NROW(forward),NROW(strike),NROW(expiry),NROW(vol),NROW(type),
