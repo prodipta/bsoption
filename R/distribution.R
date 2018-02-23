@@ -30,9 +30,9 @@ impliedDistribution <- function(vol, n=512, bounds=c(-0.2, 0.2),
 
   for(i in 1:n){
     k <- strikes[i]
-    x1 <- bsoption:::bsOptionPrice(100,k+h,vol$t,getVol(vol,100,k+h),"call",vol$discfact)
-    x2 <- bsoption:::bsOptionPrice(100,k,vol$t,getVol(vol,100,k),"call",vol$discfact)
-    x3 <- bsoption:::bsOptionPrice(100,k-h,vol$t,getVol(vol,100,k-h),"call",vol$discfact)
+    x1 <- bsOptionPrice(100,k+h,vol$t,getVol(vol,100,k+h),"call",vol$discfact)
+    x2 <- bsOptionPrice(100,k,vol$t,getVol(vol,100,k),"call",vol$discfact)
+    x3 <- bsOptionPrice(100,k-h,vol$t,getVol(vol,100,k-h),"call",vol$discfact)
     px[i] <- (x1 - 2*x2 + x3)/h^2
   }
 

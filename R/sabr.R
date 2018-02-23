@@ -58,7 +58,7 @@ squared_error <- function(params,strikes,IV,atmvol,fwd,t,b){
 }
 calibrate.sabrvol <- function(options, valuedate, atmvol, precision){
  if(atmvol==0){
-   atmvol <- (bsoption:::calibrate.quadvol(options,valuedate,precision,
+   atmvol <- (calibrate.quadvol(options,valuedate,precision,
                                            "delta"))$atmvol
  }
  f <- options$forward[1]; t <- options$t[1]; b <- 0
