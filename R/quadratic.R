@@ -26,7 +26,7 @@ calibrate.quadvol <- function(options, valuedate, precision=2, type="delta"){
   vol <- list(valuedate=valuedate,atmvol=atm,skew=skew,convexity=convexity,
               t=options$t[1], discfact= discfact, type=type)
   class(vol) <- "quadvol"
-  fitted_vols <- bsoption::getVol(vol,options$forward,options$strike)
+  fitted_vols <- getVol(vol,options$forward,options$strike)
   err <- (fitted_vols - options$IV)^2; err <- sqrt(sum(err))
   if(err/NROW(options) > 1e-03){
     rms <- round(err/NROW(options),6)
